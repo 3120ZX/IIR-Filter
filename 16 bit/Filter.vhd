@@ -78,17 +78,17 @@ architecture Behavioral of Filter is
 		end if;
 	end adder;
 	
-	--Procedure for Substractor	
-	procedure temp_substractor (	signal TS_A : in signed(15 downto 0);	--First Number
+	--Procedure for Subtractor	
+	procedure temp_subtractor (	signal TS_A : in signed(15 downto 0);	--First Number
 											signal TS_B : in signed(15 downto 0);	--Second Number
 											signal TS_C : inout signed(15 downto 0)--Temporary Signals
 										) is
 	begin
 		TS_C <= TS_A + TS_B;
-	end temp_substractor;
+	end temp_subtractor;
 	
-	--Procedure for Substractor overflow checking
-	procedure substractor(	signal S_A : in signed(15 downto 0);	--First Number
+	--Procedure for Subtractor overflow checking
+	procedure subtractor(	signal S_A : in signed(15 downto 0);	--First Number
 									signal S_B : in signed(15 downto 0);	--Second Number
 									signal S_C: inout signed(15 downto 0);	--Temporary Signals
 									signal S_D: out signed(15 downto 0)	--Results
@@ -104,7 +104,7 @@ architecture Behavioral of Filter is
 		else
 			S_D <= S_C;
 		end if;
-	end substractor;
+	end subtractor;
 	
 	--Procedure for Multiplier
 	procedure temp_multiplier (	signal 	TM_A : in  signed(15 downto 0);	--First Number
@@ -145,10 +145,10 @@ begin
 				data_input	<=	signed(filter_input);
 				temp_multiplier(data_input,s1,tmults1);
 				multiplier(data_input,s1,tmults1,mults1);
-				temp_substractor(mults1,multa2,tsuma2);
-				substractor(mults1,multa2,tsuma2,suma2);
-				temp_substractor(suma2,multa3,tsuma3);
-				substractor(suma2,multa3,tsuma3,suma3);
+				temp_subtractor(mults1,multa2,tsuma2);
+				subtractor(mults1,multa2,tsuma2,suma2);
+				temp_subtractor(suma2,multa3,tsuma3);
+				subtractor(suma2,multa3,tsuma3,suma3);
 				delay1 <= suma3;
 				temp_multiplier(delay1,ca2,tmulta2);
 				multiplier(delay1,ca2,tmulta2,multa2);
