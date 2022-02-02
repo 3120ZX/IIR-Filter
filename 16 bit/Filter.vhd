@@ -4,10 +4,10 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Filter is
     Port ( clock : in  STD_LOGIC;
-			  reset : in  STD_LOGIC;
+	   reset : in  STD_LOGIC;
            filter_input : in  STD_LOGIC_VECTOR (15 downto 0);
            filter_output : out  STD_LOGIC_VECTOR (15 downto 0);
-			  filter_done_indicator : out  STD_LOGIC;
+	   filter_done_indicator : out  STD_LOGIC;
            receiver_done_indicator : in  STD_LOGIC);
 end Filter;
 
