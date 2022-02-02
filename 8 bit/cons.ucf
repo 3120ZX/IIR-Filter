@@ -1,0 +1,4 @@
+NET "clock"			LOC = "P38";
+NET "reset"			LOC = "P39";
+NET "system_input"	LOC=	"P6";
+NET "system_output"	LOC=	"P9";
